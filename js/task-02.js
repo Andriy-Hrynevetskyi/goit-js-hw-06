@@ -14,7 +14,6 @@ const createListItem = (arr, className) =>
     const listItem = document.createElement("li");
     listItem.textContent = element;
     listItem.classList.add(className);
-    console.log(listItem);
     return listItem;
   });
 

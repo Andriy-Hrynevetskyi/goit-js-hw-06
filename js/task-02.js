@@ -9,13 +9,15 @@ const ingredients = [
 
 const listRef = document.querySelector("#ingredients");
 
-const createListItem = (arr, ref, className) => {
-  arr.forEach((element) => {
+const createListItem = (arr, className) =>
+  arr.map((element) => {
     const listItem = document.createElement("li");
     listItem.textContent = element;
     listItem.classList.add(className);
-    ref.append(listItem);
+    console.log(listItem);
+    return listItem;
   });
-};
 
-createListItem(ingredients, listRef, "item");
+const newList = createListItem(ingredients, "item");
+
+listRef.append(...newList);

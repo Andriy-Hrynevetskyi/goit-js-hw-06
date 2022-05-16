@@ -21,7 +21,6 @@ const markup = images
       `<li class="gallery__item"><img class = 'gallery__img' src = ${image.url} alt = ${image.alt}></li>`
   )
   .join("");
-console.log(galleryRef);
 galleryRef.insertAdjacentHTML("afterbegin", markup);
 
 galleryRef.style.display = "flex";

@@ -6,7 +6,7 @@ const refs = {
 };
 
 let squareSideLength = 20;
-
+let boxStorage = [];
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
@@ -19,18 +19,20 @@ function createBoxes(amount) {
     innerBox.style.width = `${squareSideLength}px`;
     innerBox.style.height = `${squareSideLength}px`;
     innerBox.style.backgroundColor = `${randomBgColor}`;
-    refs.parentContainer.append(innerBox);
+    boxStorage.push(innerBox);
   }
 }
 
 function onCreateBtnClick() {
   let amount = Number(refs.input.value);
   createBoxes(amount);
+  refs.parentContainer.append(...boxStorage);
 }
 
 function onDestroyBtnClick() {
   refs.parentContainer.innerHTML = "";
   squareSideLength = 20;
+  boxStorage = [];
 }
 refs.createBtn.addEventListener("click", onCreateBtnClick);
 refs.destroyBtn.addEventListener("click", onDestroyBtnClick);
